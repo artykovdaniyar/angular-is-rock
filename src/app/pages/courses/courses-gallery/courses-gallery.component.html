@@ -12,7 +12,7 @@
       (onDelete)="deleteCourseHandler($event)"
     ></courses-list>
     <courses-info-card *ngIf="coursesService.error$ | async">
-      <div class="error"><course-error></course-error></div>
+      <course-error></course-error>
     </courses-info-card>
     <courses-info-card *ngIf="coursesService.coursesNoFound$ | async">
       No found any courses by request
@@ -27,7 +27,7 @@
     </courses-info-card>
 
     <courses-info-card *ngIf="coursesService.isLoading$ | async">
-      <course-loading></course-loading>
+      <loading></loading>
     </courses-info-card>
 
     <courses-more

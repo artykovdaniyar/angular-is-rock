@@ -1,9 +1,7 @@
 <section class="course-form">
   <div class="container">
     <div class="card">
-      <course-loading
-        *ngIf="coursesService.isLoading$ | async"
-      ></course-loading>
+      <loading *ngIf="coursesService.isLoading$ | async"></loading>
       <course-error *ngIf="coursesService.error$ | async"></course-error>
       <h2 class="title">Edit course</h2>
       <form class="form" [formGroup]="form" (ngSubmit)="onSubmit()">

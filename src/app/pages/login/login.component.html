@@ -1,51 +1,50 @@
-<div class="container">
-  <div class="card">
-    <form class="form" (submit)="onSubmit($event)">
-      <h3 class="title">Login</h3>
-      <fieldset class="form-group">
-        <label for="#userEmail" class="label">E-mail:</label>
-        <!-- <small class="error-message">*required</small> -->
-      </fieldset>
+<div class="login">
+  <div class="container">
+    <div class="card">
+      <form class="form" [formGroup]="form" (submit)="onSubmit()">
+        <h3 class="title">Login</h3>
+        <fieldset class="form-group">
+          <label for="#userEmail" class="label">E-mail:</label>
+          <!-- <small class="error-message">*required</small> -->
+        </fieldset>
 
-      <input
-        type="email"
-        class="input"
-        id="userEmail"
-        name="userEmail"
-        placeholder="Enter e-mail"
-        autocomplete="off"
-        [value]="userLogin"
-        (input)="onInput($event)"
-      />
-      <fieldset class="form-group">
-        <label for="#userPassword" class="label">Password:</label>
-        <!-- <small class="error-message">*required</small> -->
-      </fieldset>
+        <input
+          type="email"
+          class="input"
+          id="userEmail"
+          placeholder="Enter e-mail"
+          autocomplete="off"
+          formControlName="login"
+        />
+        <fieldset class="form-group">
+          <label for="#userPassword" class="label">Password:</label>
+          <!-- <small class="error-message">*required</small> -->
+        </fieldset>
 
-      <input
-        type="password"
-        class="input"
-        id="userPassword"
-        name="userPassword"
-        placeholder="Enter password"
-        autocomplete="off"
-        [value]="userPassword"
-        (input)="onInput($event)"
-      />
+        <input
+          type="password"
+          class="input"
+          id="userPassword"
+          placeholder="Enter password"
+          autocomplete="off"
+          formControlName="password"
+        />
 
-      <small class="error-message" *ngIf="authService.errorInput$ | async"
-        >Invalid login or password</small
-      >
-      <fieldset class="form-group form-group--last">
-        <a href="/" class="link">Forget password?</a>
-        <button
-          type="submit"
-          class="btn"
-          [disabled]="!userLogin || !userPassword"
+        <small class="error-message" *ngIf="authService.errorInput$ | async"
+          >Invalid login or password</small
         >
-          Login
-        </button>
-      </fieldset>
-    </form>
+        <fieldset class="form-group form-group--last">
+          <a href="/" class="link">Forget password?</a>
+          <button
+            type="submit"
+            class="btn"
+            [disabled]="!userLogin || !userPassword"
+          >
+            Login
+          </button>
+        </fieldset>
+      </form>
+    </div>
   </div>
+  <loading *ngIf="authService.isLoading$ | async"></loading>
 </div>

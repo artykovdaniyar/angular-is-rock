@@ -1,4 +1,4 @@
-:host {
+.login {
   display: flex;
   flex-direction: column;
   flex-grow: 2;
@@ -11,72 +11,73 @@
     align-items: center;
     height: 100%;
   }
-}
-.card {
-  padding: 20px;
-  width: 368px;
-  background: #fff;
-  z-index: 3;
-  overflow: hidden;
-  border-radius: 6px;
-  animation: fadeIn 0.5s ease-in forwards;
-}
+  .card {
+    padding: 20px;
+    width: 368px;
+    background: #fff;
+    overflow: hidden;
+    border-radius: 6px;
+    animation: fadeIn 0.5s ease-in forwards;
+  }
 
-.title {
-  font-size: 23px;
-  font-weight: 700;
-  margin-bottom: 20px;
-}
-.form-group {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border: none;
-  margin: 8px 0 8px;
-}
-.form-group--last {
-  margin-top: 30px;
-}
-.error-message {
-  color: var(--danger-color);
-}
-.error-message.active {
-}
-.label {
-  font-size: 14px;
-}
-.input {
-  width: 100%;
-  border: 1px solid #e7e7e7;
-  padding: 8px;
-  &::placeholder {
-    color: #e7e7e7;
+  .title {
+    font-size: 23px;
+    font-weight: 700;
+    margin-bottom: 20px;
   }
-  &:focus {
-    border: 1px solid #6c6ca5;
-    outline: none;
+  .form-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: none;
+    margin: 8px 0 8px;
+  }
+  .form-group--last {
+    margin-top: 30px;
+  }
+  .error-message {
+    color: var(--danger-color);
+  }
+
+  .label {
+    font-size: 14px;
+  }
+  .input {
+    width: 100%;
+    border: 1px solid #e7e7e7;
+    padding: 8px;
+    &::placeholder {
+      color: #e7e7e7;
+    }
+    &:focus {
+      border: 1px solid #6c6ca5;
+      outline: none;
+    }
+  }
+  .link {
+    color: #5f9cd8;
+    font-size: 12px;
+    text-decoration: underline;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  .btn {
+    color: #fff;
+    border-radius: 3px;
+    margin-left: 5px;
+    padding: 10px 15px;
+    background: var(--primary-color);
+    transition: background 0.3s;
+    &:hover,
+    &:focus {
+      background: var(--primary-dark-color);
+    }
+    &:disabled {
+      background: grey;
+    }
   }
 }
-.link {
-  color: #5f9cd8;
-  font-size: 12px;
-  text-decoration: underline;
-  &:hover {
-    text-decoration: none;
-  }
-}
-.btn {
-  color: #fff;
-  border-radius: 3px;
-  margin-left: 5px;
-  padding: 10px 15px;
-  background: var(--primary-color);
-  transition: background 0.3s;
-  &:hover,
-  &:focus {
-    background: var(--primary-dark-color);
-  }
-  &:disabled {
-    background: grey;
-  }
+.loading {
+  background: red;
 }

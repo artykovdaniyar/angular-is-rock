@@ -9,7 +9,7 @@ import { CoursesInfoCardComponent } from './courses-info-card/courses-info-card.
 import { CoursesGalleryComponent } from './courses-gallery.component';
 import { RouterModule } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
@@ -28,6 +28,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
     FormsModule,
     SharedModule,
     RouterModule,
+    ReactiveFormsModule,
   ],
   exports: [CoursesGalleryComponent],
 })

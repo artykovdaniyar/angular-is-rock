@@ -8,10 +8,15 @@
       class="header__registration registration"
       *ngIf="authService.isAuthenticated$ | async"
     >
-      <button href="/login" type="button" class="registration__link">
+      <button
+        href="/login"
+        type="button"
+        class="registration__link"
+        *ngIf="authService.userInfo$ | async as userInfo"
+      >
         <fa-icon [icon]="faUser" class="registration__icon"></fa-icon>
 
-        {{ userName?.first }} {{ userName?.last }}
+        {{ userInfo?.name?.first }} {{ userInfo?.name?.last }}
       </button>
       <button
         href="/sign-in"

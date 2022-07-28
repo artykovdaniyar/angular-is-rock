@@ -26,7 +26,7 @@
   >
     <h4>Authors' list:</h4>
     <ul class="list">
-      <course-loading *ngIf="!authors"></course-loading>
+      <loading *ngIf="!authors"></loading>
       <li class="item" *ngFor="let author of authors">
         {{ author.name }} {{ author.lastName }}
 

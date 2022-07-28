@@ -1,4 +1,4 @@
-<form class="search" (ngSubmit)="submitHandler(searchValue)">
+<form class="search">
   <div class="input-wrapper">
     <label for="serchInput" class="icon-wrapper">
       <fa-icon [icon]="faMagnifyingGlass" size="sm" flip="horizontal"></fa-icon>
@@ -6,24 +6,26 @@
     <input
       type="text"
       id="serchInput"
-      name="searchWord"
       class="input"
       placeholder="Text to search"
       autocomplete="off"
-      [value]="searchValue"
-      (input)="onInput($event)"
+      [formControl]="searchControl"
     />
     <button
-      *ngIf="searchValue"
+      *ngIf="searchControl.value.length !== 0"
       class="reset-btn"
       type="reset"
-      (click)="resetFormHadler()"
     >
       &times;
     </button>
   </div>
 
-  <button class="btn-submit" type="submit" [disabled]="!searchValue">
-    Search
+  <button
+    class="btn-submit"
+    type="reset"
+    [disabled]="!searchControl.value"
+    (click)="clearFormHandler()"
+  >
+    <fa-icon [icon]="faArrowRotateRight" size="sm" flip="horizontal"></fa-icon>
   </button>
 </form>

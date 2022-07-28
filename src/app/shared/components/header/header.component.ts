@@ -12,7 +12,7 @@ import { User } from '../../models/user';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent implements OnInit, AfterViewInit {
+export class HeaderComponent implements OnInit {
   faPlayCircle = faPlayCircle;
   faUser = faUser;
   userName?: Name;
@@ -23,13 +23,12 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   constructor(public authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {
-    if (this.authService.isAuthenticated()) {
-      this.authService.getUserInfo().subscribe((userInfo) => {
-        this.userName = userInfo.name;
-      });
-    }
+    // if (this.authService.isAuthenticated()) {
+    //   this.authService.userInfo$.subscribe((userInfo: User) => {
+    //     this.userName = userInfo.name;
+    //   });
+    // }
   }
-  ngAfterViewInit(): void {}
   loginOut(): void {
     if (confirm('Do you really want to login out?')) {
       this.authService.loginOut();
